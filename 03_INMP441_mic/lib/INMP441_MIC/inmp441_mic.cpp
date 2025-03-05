@@ -27,13 +27,13 @@ void inmp441_loop(void *pvParameter)
         {
             int samples_read = bytesIn / 2;
             if (samples_read > 0) {
-                float mean = 0;
-                for (int i = 0; i < samples_read; ++i) {
-                    mean += (sBuffer[i]);
-                }
-                mean /= samples_read;
-                Serial.println(mean);
-                // Serial.write((const uint8_t*) sBuffer, bytesIn);
+                // float mean = 0;
+                // for (int i = 0; i < samples_read; ++i) {
+                //     mean += (sBuffer[i]);
+                // }
+                // mean /= samples_read;
+                // Serial.println(mean);
+                Serial.write((const uint8_t*) sBuffer, bytesIn);
             }
         }
         vTaskDelay(0.5 / portTICK_PERIOD_MS);

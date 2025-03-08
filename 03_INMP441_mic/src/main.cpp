@@ -1,11 +1,17 @@
 #include <Arduino.h>
 #include <inmp441_mic.h>
+#include <my_wifiManager.h>
+#include <my_async_mqtt_client.h>
 
 void setup() {
   Serial.begin(921600);
 
   // put your setup code here, to run once:
   // inmp441_mic_init();
+
+  my_wifiAutoConnect(120);
+
+  asyncMqttClientInit();
 }
 
 void loop() {
